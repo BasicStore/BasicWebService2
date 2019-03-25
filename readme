@@ -1,0 +1,47 @@
+
+REST WEBSERVICE WITH FULL RANGE OF URL ACTIONS, WITH DATABASE PERSISTENCE
+
+https://spring.io/guides/tutorials/rest/
+--> Uses Lombok and spring data
+
+========================================
+CLEAN AND RUN:
+
+./mvnw clean spring-boot:run
+
+========================================
+NOTE:
+
+- the use of advice on an exception thrown from the controller
+
+========================================
+EXAMPLE RPC CALLS:
+
+Use browser:
+Get all employees:  http://localhost:8080/api/path/employees                                              ==> GET all employees as JSON object
+To to find an employee with an id that does not exist:   http://localhost:8080/employees/99      ==> Search for employee 99, but provide advice
+Find an employee:  http://localhost:8080/api/path/employees/1                                             ==> search 1 employee which does exist
+
+For non-GET calls, use application such as curl in a different command line shell.
+Use curl to post a new employee
+curl -X POST localhost:8080/api/path/add/employee -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "gardener"}'
+
+Use curl to PUT an update to an existing record:
+curl -X PUT localhost:8080/api/path/employees/3 -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "Ring bearer"}'
+
+Use curl to DELETE an existing record:
+curl -X DELETE localhost:8080/api/path/employees/3
+
+Note POC of more complex path with multiple variables of different types:
+http://localhost:8080/api/path/employees/147/sometest/jest
+
+========================================
+MAKE TRULY RESTFUL RATHER THAN RPC (ie. with hyperlinks and HAL formatting):
+
+- add Spring HATEOAS 'spring-boot-starter-hateoas' to pom
+- change controller methods, eg. one() should now return Resource<Employee>
+
+...and follow tutorial here:
+https://spring.io/guides/tutorials/rest/
+
+========================================

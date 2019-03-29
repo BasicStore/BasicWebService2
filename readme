@@ -20,20 +20,20 @@ EXAMPLE RPC CALLS:
 Use browser:
 Get all employees:  http://localhost:8080/api/path/employees                                              ==> GET all employees as JSON object
 To to find an employee with an id that does not exist:   http://localhost:8080/employees/99      ==> Search for employee 99, but provide advice
-Find an employee:  http://localhost:8080/api/path/employees/1                                             ==> search 1 employee which does exist
+Find an employee:  http://localhost:8081/api/path/employees/1                                             ==> search 1 employee which does exist
 
 For non-GET calls, use application such as curl in a different command line shell.
 Use curl to post a new employee
-curl -X POST localhost:8080/api/path/add/employee -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "gardener"}'
+curl -X POST localhost:8081/api/path/add/employee -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "gardener"}'
 
 Use curl to PUT an update to an existing record:
-curl -X PUT localhost:8080/api/path/employees/3 -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "Ring bearer"}'
+curl -X PUT localhost:8081/api/path/employees/3 -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "Ring bearer"}'
 
 Use curl to DELETE an existing record:
-curl -X DELETE localhost:8080/api/path/employees/3
+curl -X DELETE localhost:8081/api/path/employees/3
 
 Note POC of more complex path with multiple variables of different types:
-http://localhost:8080/api/path/employees/147/sometest/jest
+http://localhost:8081/api/path/employees/147/sometest/jest
 
 ========================================
 MAKE TRULY RESTFUL RATHER THAN RPC (ie. with hyperlinks and HAL formatting):

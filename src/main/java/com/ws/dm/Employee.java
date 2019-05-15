@@ -21,6 +21,18 @@ public class Employee {
 		
 	}
 		
+	
+	
+	// just to test static
+	public Employee(Long id, String name, String role) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.role = role;
+	}
+
+
+
 	public Employee(String name, String role) {
 		this.name = name;
 		this.role = role;
@@ -48,6 +60,13 @@ public class Employee {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", role=" + role + "]";
 	}
 	
 	
